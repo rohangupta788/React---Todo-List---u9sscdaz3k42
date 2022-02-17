@@ -3,7 +3,6 @@ import React, { useState } from "react";
 
 function List(props){
 
-    const [textValue,setTextValue] = useState(props.text);
     const [isEdit,setIsEdit] = useState(false);
     const [editText,setEditText] =useState("");
 
@@ -16,7 +15,7 @@ setEditText(newedit);
     return(
 <div >
     <div style={{display: isEdit ? 'none':  'block'}}>
-    <li className="list">{textValue}
+    <li className="list">{props.text}
     <button 
             className="edit" 
             onClick={()=>setIsEdit(true)}
@@ -31,6 +30,7 @@ setEditText(newedit);
         <span>Delete</span></button>
         </li>
         </div>
+
       <div style={{display: isEdit ? 'block':  'none'}} >
           <input type="text" className="editTask" value={editText}
           onChange={edit}
@@ -39,7 +39,7 @@ setEditText(newedit);
           onClick={(e)=>{
               e.preventDefault();
               if(editText !== ""){
-                  setTextValue(editText);
+                  props.edited(props.id,editText);
                   setEditText("");
                   setIsEdit(false);
              }
