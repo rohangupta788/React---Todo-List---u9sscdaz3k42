@@ -9,9 +9,15 @@ function App()
 const [items,setItems] = useState([]);
 
 function addItem(inputText){
-	setItems((previtems)=>{
-		return [...previtems,inputText];
-	});
+	if(inputText === ""){
+		setItems(previtems);
+	}
+	else{
+		setItems((previtems)=>{
+			return [...previtems,inputText];
+		});
+	}
+	
 }
 
 function deleteItem(id){
