@@ -10,7 +10,6 @@ const [items,setItems] = useState([]);
 
 function addItem(inputText){
 	if(inputText === ""){
-		setItems(previtems);
 	}
 	else{
 		setItems((previtems)=>{
