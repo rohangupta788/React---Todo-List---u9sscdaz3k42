@@ -16,7 +16,7 @@ setEditText(newedit);
     return(
 <div >
     <div style={{display: isEdit ? 'none':  'block'}}>
-    <li className="list">{textValue}
+    <li className="list">{textValue}</li>
     <button 
             className="edit" 
             onClick={()=>setIsEdit(true)}
@@ -29,7 +29,7 @@ setEditText(newedit);
             }}
     >
         <span>Delete</span></button>
-        </li>
+        
         </div>
       <div style={{display: isEdit ? 'block':  'none'}} >
           <input type="text" className="editTask" value={editText}
