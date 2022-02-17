@@ -19,13 +19,25 @@ function addItem(inputText){
 	
 }
 
-function deleteItem(id){
-setItems((prev)=>{
-	return prev.filter((item,index)=>{
-		return index !==id;
-	});
-});
-}
+function deleteItem(id) {
+    setItems((prevItems) => {
+      return prevItems.filter((item, index) => {
+        return index !== id;
+      });
+    });
+  }
+
+
+  function edited(id,text){
+	  const edit = items.map((item,index)=>{
+		  if(index === id){
+			  item = text;
+		  }
+		  return item;
+	  });
+
+	  setItems(edit);
+  }
 
 	return (
 	<div id="main">
@@ -38,6 +50,7 @@ setItems((prev)=>{
 				id={index}
 				text={item}
 				delete={deleteItem}
+				edited={edited}
 				/>
 			))}
 		</ul>
